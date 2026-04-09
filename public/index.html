@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>My To-Do Lists</h1>
+        
+        <section id="list-creation">
+            <input type="text" id="newListTitle" placeholder="New list title...">
+            <button onclick="createList()">Create List</button>
+        </section>
+
+        <div class="container">
+            <section id="list-sidebar">
+                <h2>Your Lists</h2>
+                <ul id="list-titles"></ul>
+            </section>
+
+            <section id="entry-view">
+                <h2 id="current-list-title">Select a list</h2>
+                <div id="entry-controls" style="display:none;">
+                    <input type="text" id="newEntryText" placeholder="Add new item...">
+                    <button onclick="addEntry()">Add</button>
+                    <button class="delete-btn" onclick="deleteCurrentList()">Delete This List</button>
+                </div>
+                <ul id="entry-list"></ul>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
