@@ -1,3 +1,4 @@
+
 let currentListId = null;
 
 // Capability 1: View all list titles
@@ -15,7 +16,7 @@ async function loadLists() {
     });
 }
 
-// Capability 2: Select a list to see text entries
+// Capability 2: Select a list to see text entries w/ checkbox status
 async function selectList(id, title) {
     currentListId = id;
     document.getElementById('current-list-title').textContent = title;
@@ -79,6 +80,11 @@ async function createList(){
     });
 
     titleInput.value = '';
+
+    const sparkColors = ['#ffe100', '#ffaa00'];
+    confetti({ particleCount: 60, angle: 60, spread: 55, origin: { x: 0 }, colors: sparkColors });
+    confetti({ particleCount: 60, angle: 120, spread: 55, origin: { x: 1 }, colors: sparkColors });
+
     loadLists();
 }
 
@@ -105,6 +111,14 @@ async function toggleStatus(entryId, status) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ Status: status })
     });
+
+    if (status === true) {
+        confetti({
+            particleCount: 100,
+            spread: 150,
+        });
+    }
+
     selectList(currentListId, document.getElementById('current-list-title').textContent);
 }
 async function deleteEntry(entryId) {

@@ -5,33 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/list.png">
 </head>
 <body>
-    <main>
-        <h1>My To-Do Lists</h1>
+    <main >
+        <h1 id="maintitle">My To-Do Lists</h1>
         
+        <!-- Our list creation area --!>
         <section id="list-creation">
             <input type="text" id="newListTitle" placeholder="New list title...">
             <button onclick="createList()">Create List</button>
         </section>
 
+        <!-- This container holds both the list of lists, and the list of entries --!>
         <div class="container">
+            <!-- Area which shows the current lists of the user --!>
             <section id="list-sidebar">
                 <h2>Your Lists</h2>
                 <ul id="list-titles"></ul>
             </section>
 
+            <!-- Area which shows the current text entries of a list --!>
             <section id="entry-view">
                 <h2 id="current-list-title">Select a list</h2>
-                <div id="entry-controls" style="display:none;">
+                <div id="entry-controls"> 
                     <input type="text" id="newEntryText" placeholder="Add new item...">
-                    <button onclick="addEntry()">Add</button>
+                    <button class="add-btn" onclick="addEntry()">Add</button>
                     <button class="delete-btn" onclick="deleteCurrentList()">Delete This List</button>
                 </div>
                 <ul id="entry-list"></ul>
             </section>
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
